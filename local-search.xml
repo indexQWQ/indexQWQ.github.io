@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>Linux</title>
+    <link href="/2025/04/25/Linux/"/>
+    <url>/2025/04/25/Linux/</url>
+    
+    <content type="html"><![CDATA[<p>这篇文章是关于Linux的学习笔记</p><h3 id="Linux命令基础格式"><a href="#Linux命令基础格式" class="headerlink" title="Linux命令基础格式"></a>Linux命令基础格式</h3><p>通用格式：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">command <span class="hljs-selector-attr">[-options]</span><span class="hljs-selector-attr">[parameter]</span><br></code></pre></td></tr></table></figure><ul><li><p>command：命令本身</p></li><li><p>-options：[可选择填]命令的一些选项，可以通过选项控制命令的行为细节</p></li><li><p>parameter：[可选择填]命令的参数，大多数用于命令的指向目标</p></li></ul><h3 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h3><p>语法：</p><p>ls [-a -l -h][Linux路径]</p><p>当不使用选项和参数，直接使用命令本体，表示：以平铺的形式，列出当前工作目录下的内容</p><ul><li>HOME目录：每个Linux操作用户在Linux系统的个人账户目录，路径在：&#x2F;home&#x2F;用户名</li></ul><h4 id="a：all的意思，即列出全部文件（包括隐藏的文件-文件夹）"><a href="#a：all的意思，即列出全部文件（包括隐藏的文件-文件夹）" class="headerlink" title="-a：all的意思，即列出全部文件（包括隐藏的文件&#x2F;文件夹）"></a>-a：all的意思，即列出全部文件（包括隐藏的文件&#x2F;文件夹）</h4><img src="/2025/04/25/Linux/-a.png" class=""><p>可以看到图中列出的内容变多了</p><ul><li><p>图中以.开头的，表示是Linux系统的隐藏文件</p></li><li><p>只有通过-a选项才能看到这些隐藏的文件</p></li></ul><h4 id="l：以列表（竖向排列）的形式展示内容，并展示更多信息"><a href="#l：以列表（竖向排列）的形式展示内容，并展示更多信息" class="headerlink" title="-l：以列表（竖向排列）的形式展示内容，并展示更多信息"></a>-l：以列表（竖向排列）的形式展示内容，并展示更多信息</h4><img src="/2025/04/25/Linux/-l.png" class=""><p><em><strong>ls的命令选项的组合使用：</strong></em></p><ul><li><p>ls -l -a</p></li><li><p>ls -la</p></li><li><p>ls -al</p></li></ul><p>上面的三种写法都是一样的，表示同时应用-l和-a的功能</p><p>除了选项本身可以组合以外，选项和参数也可以一起使用。</p><h4 id="h：表示以易于阅读的形式，列出文件大小，如K、M、G"><a href="#h：表示以易于阅读的形式，列出文件大小，如K、M、G" class="headerlink" title="-h：表示以易于阅读的形式，列出文件大小，如K、M、G"></a>-h：表示以易于阅读的形式，列出文件大小，如K、M、G</h4><p>-h与-l搭配一起才能展示文件的大小</p><img src="/2025/04/25/Linux/-h.png" class=""><h3 id="cd命令"><a href="#cd命令" class="headerlink" title="cd命令"></a>cd命令</h3><p>当Linux终端（命令行）打开的时候，会默认以用户的HOME目录作为当前的工作目录</p><p>我们可以通过cd命令，更改当前所在的工作目录</p><p>cd命令来自：<em><strong>Change Directory</strong></em></p><p>语法：cd [LInux路径]</p><ul><li><p>cd命令无需选项，只有参数，表示要切换到哪个目录下</p></li><li><p>cd命令直接执行，不写参数，表示回到用户的HOME目录</p></li></ul><img src="/2025/04/25/Linux/cd.png" class=""><h3 id="pwd命令"><a href="#pwd命令" class="headerlink" title="pwd命令"></a>pwd命令</h3><p>通过ls来验证当前的工作目录，其实是不恰当的</p><p>我们可以通过pwd命令，来查看当前所在的工作目录</p><p>pwd命令来自：<em><strong>Print Work Directory</strong></em></p><p>语法：pwd</p><ul><li>pwd命令，无选项，无命令，直接输入即可</li></ul><img src="/2025/04/25/Linux/pwd.png" class="">]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>测试文章</title>
     <link href="/2025/04/05/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
     <url>/2025/04/05/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
