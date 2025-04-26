@@ -19,20 +19,28 @@
   <meta name="author" content="IndexQWQ">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这篇文章是关于Linux的学习笔记 Linux命令基础格式通用格式： 1command [-options][parameter]   command：命令本身  -options：[可选择填]命令的一些选项，可以通过选项控制命令的行为细节  parameter：[可选择填]命令的参数，大多数用于命令的指向目标   ls命令语法： ls [-a -l -h][Linux路径] 当不使用选项和参数，">
+    <meta name="description" content="这篇文章是关于Linux的学习笔记 Linux命令基础格式通用格式： 1command [-options][parameter]   command：命令本身  -options：[可选择填]命令的一些选项，可以通过选项控制命令的行为细节  parameter：[可选择填]命令的参数，大多数用于命令的指向目标   ls命令语法： 1ls [-a -l -h][Linux路径]  当不使用选项和参">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux">
 <meta property="og:url" content="https://indexqwq.github.io/2025/04/25/Linux/index.html">
 <meta property="og:site_name" content="Index">
-<meta property="og:description" content="这篇文章是关于Linux的学习笔记 Linux命令基础格式通用格式： 1command [-options][parameter]   command：命令本身  -options：[可选择填]命令的一些选项，可以通过选项控制命令的行为细节  parameter：[可选择填]命令的参数，大多数用于命令的指向目标   ls命令语法： ls [-a -l -h][Linux路径] 当不使用选项和参数，">
+<meta property="og:description" content="这篇文章是关于Linux的学习笔记 Linux命令基础格式通用格式： 1command [-options][parameter]   command：命令本身  -options：[可选择填]命令的一些选项，可以通过选项控制命令的行为细节  parameter：[可选择填]命令的参数，大多数用于命令的指向目标   ls命令语法： 1ls [-a -l -h][Linux路径]  当不使用选项和参">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/-a.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/-l.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/-h.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/cd.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/pwd.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/mkdir-p.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/mkdir.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/cat.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/cp-r.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/cp.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/mv.png">
 <meta property="article:published_time" content="2025-04-25T14:10:22.000Z">
-<meta property="article:modified_time" content="2025-04-25T15:18:19.389Z">
+<meta property="article:modified_time" content="2025-04-26T04:27:42.625Z">
 <meta property="article:author" content="IndexQWQ">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://indexqwq.github.io/2025/04/25/Linux/-a.png">
@@ -233,7 +241,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          524 字
+          1.2k 字
         
       </span>
     
@@ -244,7 +252,7 @@
         
         
         
-          5 分钟
+          10 分钟
         
       </span>
     
@@ -299,7 +307,8 @@
 </li>
 </ul>
 <h3 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h3><p>语法：</p>
-<p>ls [-a -l -h][Linux路径]</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">ls <span class="hljs-selector-attr">[-a -l -h]</span><span class="hljs-selector-attr">[Linux路径]</span><br></code></pre></td></tr></table></figure>
+
 <p>当不使用选项和参数，直接使用命令本体，表示：以平铺的形式，列出当前工作目录下的内容</p>
 <ul>
 <li>HOME目录：每个Linux操作用户在Linux系统的个人账户目录，路径在：&#x2F;home&#x2F;用户名</li>
@@ -329,12 +338,12 @@
 <h4 id="h：表示以易于阅读的形式，列出文件大小，如K、M、G"><a href="#h：表示以易于阅读的形式，列出文件大小，如K、M、G" class="headerlink" title="-h：表示以易于阅读的形式，列出文件大小，如K、M、G"></a>-h：表示以易于阅读的形式，列出文件大小，如K、M、G</h4><p>-h与-l搭配一起才能展示文件的大小</p>
 <img src="/2025/04/25/Linux/-h.png" srcset="/img/loading.gif" lazyload class="">
 
-
-
 <h3 id="cd命令"><a href="#cd命令" class="headerlink" title="cd命令"></a>cd命令</h3><p>当Linux终端（命令行）打开的时候，会默认以用户的HOME目录作为当前的工作目录</p>
 <p>我们可以通过cd命令，更改当前所在的工作目录</p>
 <p>cd命令来自：<em><strong>Change Directory</strong></em></p>
-<p>语法：cd [LInux路径]</p>
+<p>语法：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">cd</span><span class="hljs-meta"> [LInux路径]</span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li><p>cd命令无需选项，只有参数，表示要切换到哪个目录下</p>
 </li>
@@ -342,8 +351,6 @@
 </li>
 </ul>
 <img src="/2025/04/25/Linux/cd.png" srcset="/img/loading.gif" lazyload class="">
-
-
 
 <h3 id="pwd命令"><a href="#pwd命令" class="headerlink" title="pwd命令"></a>pwd命令</h3><p>通过ls来验证当前的工作目录，其实是不恰当的</p>
 <p>我们可以通过pwd命令，来查看当前所在的工作目录</p>
@@ -353,6 +360,97 @@
 <li>pwd命令，无选项，无命令，直接输入即可</li>
 </ul>
 <img src="/2025/04/25/Linux/pwd.png" srcset="/img/loading.gif" lazyload class="">
+
+<h3 id="相对路径和绝对路径"><a href="#相对路径和绝对路径" class="headerlink" title="相对路径和绝对路径"></a>相对路径和绝对路径</h3><p>cd &#x2F;home&#x2F;index&#x2F;Desktop    绝对路径</p>
+<img src="/2025/04/25/Linux/%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84.png" srcset="/img/loading.gif" lazyload class="">
+
+<p>cd Desktop</p>
+<img src="/2025/04/25/Linux/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84.png" srcset="/img/loading.gif" lazyload class="">
+
+<p>绝对路径：以根目录为起点，描述路径的一种写法，路径描述以&#x2F;开头</p>
+<p>相对路径：以当前目录为起点，描述路径的一种写法，路径描述无需以&#x2F;开头</p>
+<h3 id="特殊路径符"><a href="#特殊路径符" class="headerlink" title="特殊路径符"></a>特殊路径符</h3><p>如果当前处于：&#x2F;home&#x2F;index&#x2F;Desktop</p>
+<p>想要，向上回退一级，切换到&#x2F;home&#x2F;index中，怎么办呢？</p>
+<ul>
+<li><p>可以通过cd，即可以回到home目录</p>
+</li>
+<li><p>也可以通过特殊路径符来完成</p>
+<ul>
+<li><p>.  表示当前目录，比如cd .&#x2F;Desktop表示切换到当前目录下的Desktop目录内，和cd Desktop效果一致</p>
+</li>
+<li><p>.. 表示上一级目录，比如：cd .. 即可切换到上一级目录，cd ..&#x2F;.. 切换到上二级的目录</p>
+</li>
+<li><p>~ 表示home目录，cd ~ 即可切换到home目录 或 cd ~&#x2F;Desktop，切换到home内的Desktop目录</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="mkdir命令"><a href="#mkdir命令" class="headerlink" title="mkdir命令"></a>mkdir命令</h3><p>通过mkdir命令可以创建新的目录（文件夹）</p>
+<p>mkdir来自英文：<em><strong>Make Directory</strong></em></p>
+<p>语法：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">mkdir [-p] Linux路径<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>-p可选填，表示自动创建不存在的父目录，适用于创建连续多层级的目录</li>
+</ul>
+<img src="/2025/04/25/Linux/mkdir-p.png" srcset="/img/loading.gif" lazyload class="">
+
+<ul>
+<li>Linux表示要创建的文件夹的路径</li>
+</ul>
+<img src="/2025/04/25/Linux/mkdir.png" srcset="/img/loading.gif" lazyload class="">
+
+<h3 id="touch-cat-more命令"><a href="#touch-cat-more命令" class="headerlink" title="touch-cat-more命令"></a>touch-cat-more命令</h3><h4 id="touch创建文件"><a href="#touch创建文件" class="headerlink" title="touch创建文件"></a>touch创建文件</h4><p>可以通过touch命令创建文件</p>
+<p>语法：touch Linux路径</p>
+<h4 id="cat查看文件内容"><a href="#cat查看文件内容" class="headerlink" title="cat查看文件内容"></a>cat查看文件内容</h4><p>有了文件后，我们可以通过cat命令查看文件的内容</p>
+<p>不过，现在我们还没有学习vi编辑器，无法向文件内进行编辑内容，所以暂时我们只能通过图形化手动向文件内添加内容，来测试cat命令</p>
+<img src="/2025/04/25/Linux/cat.png" srcset="/img/loading.gif" lazyload class="">
+
+<h4 id="more查看文件内容"><a href="#more查看文件内容" class="headerlink" title="more查看文件内容"></a>more查看文件内容</h4><p>more于cat的不同在于：</p>
+<ul>
+<li><p>cat是直接将内容全部显示出来</p>
+</li>
+<li><p>more支持翻页，如果文件的内容过多，可以一页一页的显示</p>
+</li>
+</ul>
+<p>语法：</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dos"><span class="hljs-built_in">more</span> Linux路径<br></code></pre></td></tr></table></figure>
+
+<p>Linux系统内置有一个文件，路径为：&#x2F;etc&#x2F;services，可以使用more命令查看</p>
+<p>more &#x2F;etc&#x2F;services</p>
+<ul>
+<li><p>在查看过程中通过空格来翻页</p>
+</li>
+<li><p>通过q退出</p>
+</li>
+</ul>
+<h3 id="cp-mv-rm命令"><a href="#cp-mv-rm命令" class="headerlink" title="cp-mv-rm命令"></a>cp-mv-rm命令</h3><h4 id="cp命令"><a href="#cp命令" class="headerlink" title="cp命令"></a>cp命令</h4><p>用于复制文件文件夹，cp命令来自英文单词：copy</p>
+<p>语法：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-keyword">cp</span> [-r] 参数<span class="hljs-number">1</span> 参数<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>-r选项，可选，用于复制文件夹使用，表示递归</li>
+</ul>
+<img src="/2025/04/25/Linux/cp-r.png" srcset="/img/loading.gif" lazyload class="">
+
+<ul>
+<li><p>参数1，Linux路径，表示被复制的文件或文件夹</p>
+</li>
+<li><p>参数2，Linux路径，表示要复制去的地方</p>
+</li>
+</ul>
+<img src="/2025/04/25/Linux/cp.png" srcset="/img/loading.gif" lazyload class="">
+
+<h4 id="mv命令"><a href="#mv命令" class="headerlink" title="mv命令"></a>mv命令</h4><p>用于移动文件&#x2F;文件夹，来自英文：move</p>
+<p>语法：</p>
+<p>mv 参数1 参数2</p>
+<ul>
+<li><p>参数1，Linux路径，表示被移动的文件或文件夹</p>
+</li>
+<li><p>参数2，Linux路径，表示要移动去的地方，如果目标不存在，则进行改名，确保目标存在</p>
+</li>
+</ul>
+<img src="/2025/04/25/Linux/mv.png" srcset="/img/loading.gif" lazyload class="">
 
                 
               </div>
