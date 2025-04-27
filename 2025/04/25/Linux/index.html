@@ -19,12 +19,12 @@
   <meta name="author" content="IndexQWQ">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这篇文章是关于Linux的学习笔记 Linux命令基础格式通用格式： 1command [-options][parameter]   command：命令本身  -options：[可选择填]命令的一些选项，可以通过选项控制命令的行为细节  parameter：[可选择填]命令的参数，大多数用于命令的指向目标   ls命令语法： 1ls [-a -l -h][Linux路径]  当不使用选项和参">
+    <meta name="description" content="这篇文章是关于Linux的学习笔记 Linux命令基础格式通用格式：command [-options][parameter]  command：命令本身  -options：[可选择填]命令的一些选项，可以通过选项控制命令的行为细节  parameter：[可选择填]命令的参数，大多数用于命令的指向目标   ls命令语法：ls [-a -l -h][Linux路径] 当不使用选项和参数，直接使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux">
 <meta property="og:url" content="https://indexqwq.github.io/2025/04/25/Linux/index.html">
 <meta property="og:site_name" content="Index">
-<meta property="og:description" content="这篇文章是关于Linux的学习笔记 Linux命令基础格式通用格式： 1command [-options][parameter]   command：命令本身  -options：[可选择填]命令的一些选项，可以通过选项控制命令的行为细节  parameter：[可选择填]命令的参数，大多数用于命令的指向目标   ls命令语法： 1ls [-a -l -h][Linux路径]  当不使用选项和参">
+<meta property="og:description" content="这篇文章是关于Linux的学习笔记 Linux命令基础格式通用格式：command [-options][parameter]  command：命令本身  -options：[可选择填]命令的一些选项，可以通过选项控制命令的行为细节  parameter：[可选择填]命令的参数，大多数用于命令的指向目标   ls命令语法：ls [-a -l -h][Linux路径] 当不使用选项和参数，直接使用">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/-a.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/-l.png">
@@ -39,8 +39,10 @@
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/cp-r.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/cp.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/mv.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/rm-f.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/rm.png">
 <meta property="article:published_time" content="2025-04-25T14:10:22.000Z">
-<meta property="article:modified_time" content="2025-04-26T04:27:42.625Z">
+<meta property="article:modified_time" content="2025-04-27T05:56:29.560Z">
 <meta property="article:author" content="IndexQWQ">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://indexqwq.github.io/2025/04/25/Linux/-a.png">
@@ -241,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          1.5k 字
         
       </span>
     
@@ -252,7 +254,7 @@
         
         
         
-          10 分钟
+          13 分钟
         
       </span>
     
@@ -295,9 +297,7 @@
               <div class="markdown-body">
                 
                 <p>这篇文章是关于Linux的学习笔记</p>
-<h3 id="Linux命令基础格式"><a href="#Linux命令基础格式" class="headerlink" title="Linux命令基础格式"></a>Linux命令基础格式</h3><p>通用格式：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">command <span class="hljs-selector-attr">[-options]</span><span class="hljs-selector-attr">[parameter]</span><br></code></pre></td></tr></table></figure>
-
+<h3 id="Linux命令基础格式"><a href="#Linux命令基础格式" class="headerlink" title="Linux命令基础格式"></a>Linux命令基础格式</h3><p>通用格式：<code>command [-options][parameter]</code></p>
 <ul>
 <li><p>command：命令本身</p>
 </li>
@@ -306,9 +306,7 @@
 <li><p>parameter：[可选择填]命令的参数，大多数用于命令的指向目标</p>
 </li>
 </ul>
-<h3 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h3><p>语法：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">ls <span class="hljs-selector-attr">[-a -l -h]</span><span class="hljs-selector-attr">[Linux路径]</span><br></code></pre></td></tr></table></figure>
-
+<h3 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h3><p>语法：<code>ls [-a -l -h][Linux路径]</code></p>
 <p>当不使用选项和参数，直接使用命令本体，表示：以平铺的形式，列出当前工作目录下的内容</p>
 <ul>
 <li>HOME目录：每个Linux操作用户在Linux系统的个人账户目录，路径在：&#x2F;home&#x2F;用户名</li>
@@ -341,9 +339,7 @@
 <h3 id="cd命令"><a href="#cd命令" class="headerlink" title="cd命令"></a>cd命令</h3><p>当Linux终端（命令行）打开的时候，会默认以用户的HOME目录作为当前的工作目录</p>
 <p>我们可以通过cd命令，更改当前所在的工作目录</p>
 <p>cd命令来自：<em><strong>Change Directory</strong></em></p>
-<p>语法：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">cd</span><span class="hljs-meta"> [LInux路径]</span><br></code></pre></td></tr></table></figure>
-
+<p>语法：<code>cd [LInux路径]</code></p>
 <ul>
 <li><p>cd命令无需选项，只有参数，表示要切换到哪个目录下</p>
 </li>
@@ -387,9 +383,7 @@
 </ul>
 <h3 id="mkdir命令"><a href="#mkdir命令" class="headerlink" title="mkdir命令"></a>mkdir命令</h3><p>通过mkdir命令可以创建新的目录（文件夹）</p>
 <p>mkdir来自英文：<em><strong>Make Directory</strong></em></p>
-<p>语法：</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">mkdir [-p] Linux路径<br></code></pre></td></tr></table></figure>
-
+<p>语法：<code>mkdir [-p] Linux路径</code></p>
 <ul>
 <li>-p可选填，表示自动创建不存在的父目录，适用于创建连续多层级的目录</li>
 </ul>
@@ -413,9 +407,7 @@
 <li><p>more支持翻页，如果文件的内容过多，可以一页一页的显示</p>
 </li>
 </ul>
-<p>语法：</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dos"><span class="hljs-built_in">more</span> Linux路径<br></code></pre></td></tr></table></figure>
-
+<p>语法：<code>more Linux路径</code></p>
 <p>Linux系统内置有一个文件，路径为：&#x2F;etc&#x2F;services，可以使用more命令查看</p>
 <p>more &#x2F;etc&#x2F;services</p>
 <ul>
@@ -425,9 +417,7 @@
 </li>
 </ul>
 <h3 id="cp-mv-rm命令"><a href="#cp-mv-rm命令" class="headerlink" title="cp-mv-rm命令"></a>cp-mv-rm命令</h3><h4 id="cp命令"><a href="#cp命令" class="headerlink" title="cp命令"></a>cp命令</h4><p>用于复制文件文件夹，cp命令来自英文单词：copy</p>
-<p>语法：</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-keyword">cp</span> [-r] 参数<span class="hljs-number">1</span> 参数<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
-
+<p>语法：<code>cp [-r] 参数1 参数2</code></p>
 <ul>
 <li>-r选项，可选，用于复制文件夹使用，表示递归</li>
 </ul>
@@ -442,8 +432,7 @@
 <img src="/2025/04/25/Linux/cp.png" srcset="/img/loading.gif" lazyload class="">
 
 <h4 id="mv命令"><a href="#mv命令" class="headerlink" title="mv命令"></a>mv命令</h4><p>用于移动文件&#x2F;文件夹，来自英文：move</p>
-<p>语法：</p>
-<p>mv 参数1 参数2</p>
+<p>语法：<code>mv 参数1 参数2</code></p>
 <ul>
 <li><p>参数1，Linux路径，表示被移动的文件或文件夹</p>
 </li>
@@ -451,6 +440,39 @@
 </li>
 </ul>
 <img src="/2025/04/25/Linux/mv.png" srcset="/img/loading.gif" lazyload class="">
+
+<h4 id="rm命令"><a href="#rm命令" class="headerlink" title="rm命令"></a>rm命令</h4><p>用于删除文件&#x2F;文件夹，来自英文单词：remove</p>
+<p>语法：<code>rm [-r -f] 参数1 参数2 ...... 参数n</code></p>
+<ul>
+<li><p>同cp命令一样，-r选项用于删除文件夹</p>
+</li>
+<li><p>-f表示force，强制删除（不会弹出提示确认信息）</p>
+<ul>
+<li><p>普通用户删除内容不会弹出提示，只有root管理员用户删除内容会有提示</p>
+</li>
+<li><p>所以一般普通用户用不到-f选项</p>
+<p>可以通过su - root，输入用户密码进入root用户，通过exit退回普通用户。</p>
+<img src="/2025/04/25/Linux/rm-f.png" srcset="/img/loading.gif" lazyload class=""></li>
+</ul>
+</li>
+<li><p>参数1、参数2、······、参数n 表示要删除的文件&#x2F;文件夹路径，按照空格隔开</p>
+</li>
+</ul>
+<p>rm命令支持通配符*，用来做模糊匹配</p>
+<p>符号*表示通配符，即匹配任意内容（包含空），示例：</p>
+<ul>
+<li><p>test*，表示匹配任何以test开头的内容</p>
+</li>
+<li><p>*test，表示匹配任何以test结尾的内容</p>
+</li>
+<li><p>*test *，表示匹配任何包含test的内容</p>
+</li>
+</ul>
+<p>演示：删除所有以test开头的文件&#x2F;文件夹</p>
+<img src="/2025/04/25/Linux/rm.png" srcset="/img/loading.gif" lazyload class="">
+
+<p>警告：rm是一个危险的命令，特别是在处于root用户的时候，要谨慎使用。</p>
+<p>如下命令，请不要在root用户下执行：<code>rm -rf /</code>  <code>rm -rf /*</code>效果等同于在windows上执行c盘格式化。</p>
 
                 
               </div>
