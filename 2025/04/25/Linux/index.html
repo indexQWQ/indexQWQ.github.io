@@ -44,8 +44,20 @@
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/which.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/find1.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/find-size.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/echo.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/echo2.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/vim%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E5%BF%AB%E6%8D%B7%E9%94%AE.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E5%BF%AB%E6%8D%B7%E9%94%AE2.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E5%BF%AB%E6%8D%B7%E9%94%AE3.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/%E5%BA%95%E7%BA%BF%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/sudo.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/getent.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/getent1.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/getentgroup.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/getentgroup2.png">
 <meta property="article:published_time" content="2025-04-25T14:10:22.000Z">
-<meta property="article:modified_time" content="2025-04-28T15:16:56.407Z">
+<meta property="article:modified_time" content="2025-05-03T14:35:20.404Z">
 <meta property="article:author" content="IndexQWQ">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://indexqwq.github.io/2025/04/25/Linux/-a.png">
@@ -246,7 +258,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          3.7k 字
         
       </span>
     
@@ -257,7 +269,7 @@
         
         
         
-          15 分钟
+          31 分钟
         
       </span>
     
@@ -509,6 +521,217 @@
 </ul>
 <p>提示：用Ctrl + c可以停止搜索</p>
 <img src="/2025/04/25/Linux/find-size.png" srcset="/img/loading.gif" lazyload class="">
+
+<h3 id="grep-wc-管道符命令"><a href="#grep-wc-管道符命令" class="headerlink" title="grep-wc-管道符命令"></a>grep-wc-管道符命令</h3><h4 id="grep命令"><a href="#grep命令" class="headerlink" title="grep命令"></a>grep命令</h4><p>从文件中通过关键字过滤文件行</p>
+<p>语法：<code>grep [-n] 关键字 文件路径</code></p>
+<ul>
+<li><p>选项-n，可选，表示在结果中显示匹配的行的行号</p>
+</li>
+<li><p>参数，关键字，必填，表示过滤的关键字，带有空格或其它特殊符号，建议使用 “ ”将关键字包围起来</p>
+</li>
+<li><p>参数，文件路径，必填，表示要过滤内容的文件路径，<u>可作为内容输入端口</u></p>
+</li>
+</ul>
+<h4 id="wc命令"><a href="#wc命令" class="headerlink" title="wc命令"></a>wc命令</h4><p>用来统计文件的行数、单词数量等</p>
+<p>语法：<code>wc [-c -m -l -w] 文件路径</code></p>
+<ul>
+<li><p><em>-c</em>，统计bytes数量</p>
+</li>
+<li><p><em>-m</em>，统计字符数量</p>
+</li>
+<li><p><em>-l</em>，统计行数</p>
+</li>
+<li><p><em>-w</em>，统计单词数量</p>
+</li>
+<li><p>参数，文件路径，被统计的文件，<u>可以作为内容的输入端口</u></p>
+</li>
+</ul>
+<h4 id="管道符"><a href="#管道符" class="headerlink" title="管道符"></a>管道符</h4><p>管道符：|</p>
+<p>含义：将管道符左边命令的结果，作为右边命令的输入</p>
+<h3 id="echo-tail-重定向符命令"><a href="#echo-tail-重定向符命令" class="headerlink" title="echo-tail-重定向符命令"></a>echo-tail-重定向符命令</h3><h4 id="echo命令"><a href="#echo命令" class="headerlink" title="echo命令"></a>echo命令</h4><p>在命令行中输出指定的内容</p>
+<p>语法：<code>echo &quot;输出的内容&quot;</code></p>
+<ul>
+<li>无需选项，只有一个参数，表示要输出的内容，复杂内容可以用” “包裹</li>
+</ul>
+<p>看如下命令：<code>echo pwd</code></p>
+<p>本意是想，输出当前的工作路径，但是pwd被作为普通字符输出了</p>
+<p>这个时候我们可以通过反引号将pwd包围，从而使pwd被作为命令执行，而非普通字符</p>
+<img src="/2025/04/25/Linux/echo.png" srcset="/img/loading.gif" lazyload class="">
+
+<h4 id="tail命令"><a href="#tail命令" class="headerlink" title="tail命令"></a>tail命令</h4><p>可以查看文件尾部的命令内容，跟踪文件的最新更改</p>
+<p>语法：tail [-f -num] Linux路径</p>
+<ul>
+<li><p>参数，Linux路径，表示被跟踪的文件路径</p>
+</li>
+<li><p>选项，-f，表示持续跟踪     CTRL+c可以停止跟踪    按键盘的上键可以找到上次输入的命令</p>
+</li>
+<li><p>选项，-num，表示尾部多少行，不填默认10行，num是要填的数字</p>
+</li>
+</ul>
+<h4 id="重定向符"><a href="#重定向符" class="headerlink" title="重定向符"></a>重定向符</h4><p>重定向符：&gt;和&gt;&gt;</p>
+<ul>
+<li><p>’&gt;‘，将左侧的命令的结果，<u><strong>覆盖</strong></u>写入到符号右侧的指定的文件中</p>
+</li>
+<li><p>‘&gt;&gt;’，将左侧命令的结果，<u><strong>追加</strong></u>写入到符号右侧指定的文件中</p>
+</li>
+</ul>
+<p>具体可看以下内容</p>
+<img src="/2025/04/25/Linux/echo2.png" srcset="/img/loading.gif" lazyload class="">
+
+<h3 id="vi编辑器"><a href="#vi编辑器" class="headerlink" title="vi编辑器"></a>vi编辑器</h3><h4 id="vi-vim编辑器介绍"><a href="#vi-vim编辑器介绍" class="headerlink" title="vi\vim编辑器介绍"></a>vi\vim编辑器介绍</h4><p>vi\vim是visual interface的简称，是Linux中最经典的文本编辑器</p>
+<p>同图形化界面中的文本编辑器一样，vi是命令行下对文本文件进行编辑的绝佳选择。</p>
+<p><strong>vim是vi的加强版本，兼容vi的所有指令，不仅可以编辑文本，而且还具有shell程序编辑的功能，可以用不同颜色的字体来辨别语法的正确性，极大方便了程序的设计和编辑性。</strong></p>
+<h4 id="vi-vim编辑器的三种工作模式"><a href="#vi-vim编辑器的三种工作模式" class="headerlink" title="vi\vim编辑器的三种工作模式"></a>vi\vim编辑器的三种工作模式</h4><ul>
+<li><p><strong>命令模式（command mode）</strong></p>
+<p>命令模式下，所写的编辑器都理解为命令，以命令驱动执行不同的功能。</p>
+<p>此模式下不能自由进行文本编辑。</p>
+</li>
+<li><p><strong>输入模式（insert mode）</strong></p>
+<p>此模式下可以对文件进行自由编辑。</p>
+</li>
+<li><p><strong>底线命令模式（last line mode）</strong></p>
+<p>以：开始，通常用于文件的保存、退出。</p>
+</li>
+</ul>
+<h4 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h4><p>如果需要通过vi&#x2F;vim编辑器编辑文件，可以通过以下命令：</p>
+<p><code>vi 文件路径</code></p>
+<p><code>vim 文件路径</code></p>
+<ul>
+<li><p>如果文件路径表示的文件不存在，那么此命令会用于编辑新文件</p>
+</li>
+<li><p>如果文件路径表示的文件存在，那么此命令用于编辑已有的文件</p>
+</li>
+</ul>
+<h4 id="vi编辑器的快速体验"><a href="#vi编辑器的快速体验" class="headerlink" title="vi编辑器的快速体验"></a>vi编辑器的快速体验</h4><p>通过vi&#x2F;vim命令编辑文件，会打开一个新的窗口，此时这个窗口就是：命令模式窗口</p>
+<p>命令模式是vi编辑器的入口和出口，如右图                        <img src="/2025/04/25/Linux/vim%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F.png" srcset="/img/loading.gif" lazyload class=""></p>
+<ul>
+<li><p>进入vi编辑器会进入命令模式</p>
+</li>
+<li><p>通过命令模式输入键盘指令，可以进入输入模式</p>
+</li>
+<li><p>输入模式需要退回到命令模式，然后通过命令可以进入底线命令模式</p>
+</li>
+</ul>
+<p>补充：CTRL+c也可以从输入模式退回到命令模式</p>
+<h4 id="命令模式的快捷键"><a href="#命令模式的快捷键" class="headerlink" title="命令模式的快捷键"></a>命令模式的快捷键</h4><p>下面是命令模式中常见的快捷键</p>
+<img src="/2025/04/25/Linux/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E5%BF%AB%E6%8D%B7%E9%94%AE.png" srcset="/img/loading.gif" lazyload class="">
+
+<img src="/2025/04/25/Linux/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E5%BF%AB%E6%8D%B7%E9%94%AE2.png" srcset="/img/loading.gif" lazyload class="">
+
+<img src="/2025/04/25/Linux/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E5%BF%AB%E6%8D%B7%E9%94%AE3.png" srcset="/img/loading.gif" lazyload class="">
+
+<h4 id="底线命令模式"><a href="#底线命令模式" class="headerlink" title="底线命令模式"></a>底线命令模式</h4><p>通过Esc，退回到命令模式，再输入：，就可以进入到底线命令模式</p>
+<img src="/2025/04/25/Linux/%E5%BA%95%E7%BA%BF%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F.png" srcset="/img/loading.gif" lazyload class="">
+
+<h3 id="Linux的root用户"><a href="#Linux的root用户" class="headerlink" title="Linux的root用户"></a>Linux的root用户</h3><h4 id="root用户"><a href="#root用户" class="headerlink" title="root用户"></a>root用户</h4><p>无论是Windows、Mac OS、Linux均采用多用户的管理模式进行权限管理</p>
+<p>而在Linux系统中，拥有最大权限的账户名为root（超级管理员）</p>
+<p>root用户拥有最大的系统操作权限，而普通用户在许多地方是受限制的</p>
+<p>例如：在根目录下创建文件夹只有root用户可以</p>
+<p>由此可见普通用户的权限一般在home目录内是不受限制的</p>
+<h4 id="su命令"><a href="#su命令" class="headerlink" title="su命令"></a>su命令</h4><p>su命令就是用于账户切换的系统命令，其来源于英文：Switch User</p>
+<p>语法：<code>su [-] [用户名]</code></p>
+<ul>
+<li><p>-符号是可选的，表示是否在切换用户后加载环境变量（后面有），<strong>建议带上</strong></p>
+</li>
+<li><p>参数：用户名，表示要切换的用户，用户名可以省略，省略表示要切换到root</p>
+</li>
+<li><p>切换到用户后，可以通过exit命令退回上一个用户，也可以使用快捷键：CTRL+d</p>
+</li>
+<li><p>使用普通用户，切换到其他用户需要输入密码，如切换到root用户</p>
+</li>
+<li><p>使用root用户切换到其它用户不需要密码，可以直接切换</p>
+</li>
+</ul>
+<h4 id="sudo命令"><a href="#sudo命令" class="headerlink" title="sudo命令"></a>sudo命令</h4><p>不建议长期使用root用户，避免带来系统损坏。</p>
+<p>为此我们以使用sudo命令，为普通的命令授权，临时以root身份执行。</p>
+<p>语法：<code>sudo 命令</code></p>
+<ul>
+<li><p>在其它命令前，带上sudo，即可为这一条命令临时赋予root授权</p>
+</li>
+<li><p>但是并不是所有的用户，都有权利使用sudo，我们需要为<u>普通用户配置sudo认证</u></p>
+</li>
+</ul>
+<h5 id="为普通用户配置sudo认证"><a href="#为普通用户配置sudo认证" class="headerlink" title="为普通用户配置sudo认证"></a>为普通用户配置sudo认证</h5><ul>
+<li><p>切换到root用户，执行visudo命令，会自动通过vi编辑器打开：&#x2F;etc&#x2F;sudoers</p>
+</li>
+<li><p>在文件最后添加：</p>
+<p><code>用户名 ALL=(ALL)    NOPASSWD:ALL</code></p>
+<ul>
+<li>其中最后的NOPASSWD:ALL表示使用sudo命令，无需输入密码</li>
+</ul>
+</li>
+<li><p>最后通过wq保存</p>
+</li>
+<li><p>切换回普通用户</p>
+<img src="/2025/04/25/Linux/sudo.png" srcset="/img/loading.gif" lazyload class=""></li>
+</ul>
+<h3 id="用户和用户组"><a href="#用户和用户组" class="headerlink" title="用户和用户组"></a>用户和用户组</h3><h4 id="用户和用户组的概念"><a href="#用户和用户组的概念" class="headerlink" title="用户和用户组的概念"></a>用户和用户组的概念</h4><p>Linux系统中可以：</p>
+<ul>
+<li><p>配置多个用户</p>
+</li>
+<li><p>配置多个用户组</p>
+</li>
+<li><p>用户可以加入到多个用户组中</p>
+</li>
+</ul>
+<p>Linux中关于权限的管控级别有两个级别，分别是：</p>
+<ul>
+<li><p>针对用户的权限控制</p>
+</li>
+<li><p>针对用户组的权限控制</p>
+</li>
+</ul>
+<p>比如，针对某文件，可以控制用户的权限，也可以控制用户组的权限。</p>
+<h4 id="用户组管理"><a href="#用户组管理" class="headerlink" title="用户组管理"></a>用户组管理</h4><p>以下命令需要root用户执行</p>
+<ul>
+<li>创建用户组</li>
+</ul>
+<p>        <code>groupadd 用户组名</code></p>
+<ul>
+<li>删除用户组</li>
+</ul>
+<p>        <code>groupdel 用户组名</code></p>
+<h4 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h4><p>以下命令需要root用户执行</p>
+<ul>
+<li><p>创建用户</p>
+<p><code>useradd [-g -d] 用户名</code></p>
+<ul>
+<li><p>-g指定用户的组，不指定-g，会创建同名组并自动加入，指定-g需要组已经存在，如已存在同名组，必须使用-g</p>
+</li>
+<li><p>-d指定用户HOME路径，不指定，HOME目录默认在：&#x2F;home&#x2F;用户名</p>
+</li>
+</ul>
+</li>
+<li><p>删除用户</p>
+<p><code>userdel [-r] 用户名</code></p>
+<ul>
+<li>-r可以删除用户的HOME目录，不使用-r删除用户时，HOME目录保存</li>
+</ul>
+</li>
+<li><p>查看用户所属组</p>
+<p><code>id  [ 用户名]</code></p>
+<ul>
+<li>参数：用户名，被查看的用户，如果不提供则查看自身</li>
+</ul>
+</li>
+<li><p>修改用户所属组</p>
+<p><code>usermod -aG 用户组 用户名</code></p>
+<p>将指定用户加入指定用户组</p>
+</li>
+</ul>
+<h4 id="getent命令"><a href="#getent命令" class="headerlink" title="getent命令"></a>getent命令</h4><p>可以查看当前系统中有哪些用户</p>
+<p>语法：<code>getent passwd</code></p>
+<img src="/2025/04/25/Linux/getent.png" srcset="/img/loading.gif" lazyload class="">
+
+<img src="/2025/04/25/Linux/getent1.png" srcset="/img/loading.gif" lazyload class="">
+
+<p>每个用户共有6个信息</p>
+<p>用户名：密码(x):用户ID:组ID:描述信息(无用):HOME目录:执行终端(默认bash)</p>
+<p>也可以查看当前系统中有哪些用户组</p>
+<p>语法：<code>getent group</code></p>
+<img src="/2025/04/25/Linux/getentgroup.png" srcset="/img/loading.gif" lazyload class="">
+
+<img src="/2025/04/25/Linux/getentgroup2.png" srcset="/img/loading.gif" lazyload class="">
 
                 
               </div>
