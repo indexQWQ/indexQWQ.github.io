@@ -56,8 +56,10 @@
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/getent1.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/getentgroup.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/getentgroup2.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/%E6%9D%83%E9%99%90%E7%BB%86%E8%8A%82.png">
+<meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/%E6%9D%83%E9%99%90%E4%BF%A1%E6%81%AF.png">
 <meta property="article:published_time" content="2025-04-25T14:10:22.000Z">
-<meta property="article:modified_time" content="2025-05-03T14:35:20.404Z">
+<meta property="article:modified_time" content="2025-05-04T09:58:14.132Z">
 <meta property="article:author" content="IndexQWQ">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://indexqwq.github.io/2025/04/25/Linux/-a.png">
@@ -258,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.7k 字
+          4.3k 字
         
       </span>
     
@@ -269,7 +271,7 @@
         
         
         
-          31 分钟
+          36 分钟
         
       </span>
     
@@ -732,6 +734,98 @@
 <img src="/2025/04/25/Linux/getentgroup.png" srcset="/img/loading.gif" lazyload class="">
 
 <img src="/2025/04/25/Linux/getentgroup2.png" srcset="/img/loading.gif" lazyload class="">
+
+<h3 id="查看权限控制信息"><a href="#查看权限控制信息" class="headerlink" title="查看权限控制信息"></a>查看权限控制信息</h3><h4 id="查看Linux文件的权限管控信息"><a href="#查看Linux文件的权限管控信息" class="headerlink" title="查看Linux文件的权限管控信息"></a>查看Linux文件的权限管控信息</h4><p>通过ls -l可以以列表的形式查看内容，并显示权限细节</p>
+<img src="/2025/04/25/Linux/%E6%9D%83%E9%99%90%E7%BB%86%E8%8A%82.png" srcset="/img/loading.gif" lazyload class="">
+
+<ul>
+<li><p>序号1，表示文件、文件夹的权限控制信息</p>
+</li>
+<li><p>序号2，表示文件、文件夹所属用户</p>
+</li>
+<li><p>序号3，表示文件、文件夹所属用户组</p>
+</li>
+</ul>
+<h4 id="认知权限信息"><a href="#认知权限信息" class="headerlink" title="认知权限信息"></a>认知权限信息</h4><p>解释序号1，权限细节</p>
+<p>权限细节总共分为10个槽位</p>
+ <img src="/2025/04/25/Linux/%E6%9D%83%E9%99%90%E4%BF%A1%E6%81%AF.png" srcset="/img/loading.gif" lazyload class="">
+
+<p>举例：drwxr-xr-x，表示：</p>
+<ul>
+<li><p>首字母d表示这是一个文件夹</p>
+</li>
+<li><p>所属用户是权限是：有r有w有x，rwx</p>
+</li>
+<li><p>所属用户组的权限是：有r无w有x，r-x（-表示无此权限）</p>
+</li>
+<li><p>其它用户的权限是：有r无w有x，r-x</p>
+</li>
+</ul>
+<h4 id="rwx"><a href="#rwx" class="headerlink" title="rwx"></a>rwx</h4><ul>
+<li><p>r表示读权限</p>
+</li>
+<li><p>w表示写权限</p>
+</li>
+<li><p>x表示执行权限</p>
+</li>
+</ul>
+<p>针对不同的文件和文件夹，rwx的含义有细微的区别</p>
+<ul>
+<li><p>r，针对文件可以查看文件内容</p>
+<ul>
+<li>针对文件夹可以查看文件夹的内容，如ls命令</li>
+</ul>
+</li>
+<li><p>w，针对文件表示可以修改此文件</p>
+<ul>
+<li>针对文件夹，可以在文件夹内：创建、删除、改名等操作</li>
+</ul>
+</li>
+<li><p>x，针对文件表示可以将文件作为程序执行</p>
+<ul>
+<li>针对文件夹，表示可以更改工作目录到此文件夹，即cd进入</li>
+</ul>
+</li>
+</ul>
+<h3 id="chmod命令"><a href="#chmod命令" class="headerlink" title="chmod命令"></a>chmod命令</h3><p>用于修改文件或文件夹的权限信息。</p>
+<p>注意：只有文件、文件夹的所属用户或root用户可以修改</p>
+<p>语法：chmod [-R] 权限 文件&#x2F;文件夹</p>
+<ul>
+<li>选项：-R，对文件夹内的全部内容应用同样的操作</li>
+</ul>
+<p>示例：</p>
+<ul>
+<li><p>chmod u&#x3D;rwx,g&#x3D;rx,o&#x3D;x hello.txt，将文件权限修改为：rwxr-x–x</p>
+<ul>
+<li>其中：u表示user所属用户权限，g表示group组权限，o表示other其它用户权限</li>
+</ul>
+</li>
+<li><p>chmod -R u&#x3D;rwx,g&#x3D;rx,o&#x3D;x test，将文件夹test以及文件夹内全部内容权限设置为：rwxr-x–x</p>
+</li>
+</ul>
+<p>除此之外，还有快捷写法：chmod 751 test.txt</p>
+<p>将test.txt的权限修改为751</p>
+<p>权限可以用3位数字来代表，3位数字从左到右分别表示用户、用户组、其他用户的权限。</p>
+<p>数字的细节如下：r记作4、w记作2、x记作1，可以有：</p>
+<ul>
+<li><p>0：—</p>
+</li>
+<li><p>1：–x</p>
+</li>
+<li><p>2：-w-</p>
+</li>
+<li><p>3：-wx</p>
+</li>
+<li><p>4：r–</p>
+</li>
+<li><p>5：r-x</p>
+</li>
+<li><p>6：rw-</p>
+</li>
+<li><p>7：rwx</p>
+</li>
+</ul>
+<p>所以751表示rwx r-x –x</p>
 
                 
               </div>
