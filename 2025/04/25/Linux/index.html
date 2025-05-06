@@ -61,7 +61,7 @@
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/history.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/history.png">
 <meta property="article:published_time" content="2025-04-25T14:10:22.000Z">
-<meta property="article:modified_time" content="2025-05-05T02:09:21.769Z">
+<meta property="article:modified_time" content="2025-05-06T04:51:49.845Z">
 <meta property="article:author" content="IndexQWQ">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://indexqwq.github.io/2025/04/25/Linux/-a.png">
@@ -262,7 +262,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.1k 字
+          5.4k 字
         
       </span>
     
@@ -273,7 +273,7 @@
         
         
         
-          43 分钟
+          46 分钟
         
       </span>
     
@@ -791,7 +791,7 @@
 </ul>
 <h3 id="chmod命令"><a href="#chmod命令" class="headerlink" title="chmod命令"></a>chmod命令</h3><p>用于修改文件或文件夹的权限信息。</p>
 <p>注意：只有文件、文件夹的所属用户或root用户可以修改</p>
-<p>语法：chmod [-R] 权限 文件&#x2F;文件夹</p>
+<p>语法：<code>chmod [-R] 权限 文件/文件夹</code></p>
 <ul>
 <li>选项：-R，对文件夹内的全部内容应用同样的操作</li>
 </ul>
@@ -830,7 +830,7 @@
 <p>所以751表示rwx r-x –x</p>
 <h3 id="chown命令"><a href="#chown命令" class="headerlink" title="chown命令"></a>chown命令</h3><p>可以用于修改文件、文件夹的所属用户和用户组</p>
 <p>注意：普通用户无法修改所属为其它用户或组，所以此命令只适用于root用户执行</p>
-<p>语法：chown [-R] [ 用户][:][用户组] 文件或文件夹</p>
+<p>语法：<code>chown [-R] [ 用户][:][用户组] 文件或文件夹</code></p>
 <ul>
 <li><p>选项，-R，同chmod，对文件夹内全部内容应用相同规则</p>
 </li>
@@ -919,7 +919,7 @@
 </ul>
 <p>Linux系统同样支持这两种方式，首先学习使用：Linux命令行内的“应用商店”，yum命令安装软件</p>
 <h4 id="yum命令"><a href="#yum命令" class="headerlink" title="yum命令"></a>yum命令</h4><p>yum：RPM包软件管理器，用于自动化安装配置Linux软件，并可以自动解决依赖问题。</p>
-<p>语法：yum [-y] [install | remove | search] 软件名称</p>
+<p>语法：<code>yum [-y] [install | remove | search] 软件名称</code></p>
 <ul>
 <li><p>选项：-y，自动确认，无需手动确认安装或卸载过程</p>
 </li>
@@ -943,7 +943,7 @@
 <h4 id="apt命令-扩展"><a href="#apt命令-扩展" class="headerlink" title="apt命令-扩展"></a>apt命令-扩展</h4><p>前面学习的各类Linux命令，都是通用的。但是软件安装，Centos系统和Ubuntu系统是使用不同的包管理器。</p>
 <p>centos使用yum管理器，ubuntu使用apt管理器</p>
 <p>通过前面学习的WSL环境，我们可以得到ubuntu运行环境。</p>
-<p>语法：apt [-y] [install | remove |search] 软件名称</p>
+<p>语法：<code>apt [-y] [install | remove |search] 软件名称</code></p>
 <p>用法和yum一致，同样需要root权限</p>
 <ul>
 <li><p>apt install wget，安装wget</p>
@@ -953,6 +953,60 @@
 <li><p>apt search wget，搜索wget</p>
 </li>
 </ul>
+<h3 id="systemctl命令"><a href="#systemctl命令" class="headerlink" title="systemctl命令"></a>systemctl命令</h3><p>Linux系统很多软件（内置的包括第三方）均支持使用systemctl命令控制：启动、停止、开机自启能被systemctl管理的软件，一般也称之为：服务</p>
+<p>语法：<code>systemctl start | stop | status | enable | disable 服务名</code></p>
+<ul>
+<li><p>start 启动</p>
+</li>
+<li><p>stop 关闭</p>
+</li>
+<li><p>status 查看状态</p>
+</li>
+<li><p>enable 开启开机自启</p>
+</li>
+<li><p>disable 关闭开机自启</p>
+</li>
+</ul>
+<p>系统内置的服务比较多，比如：</p>
+<ul>
+<li><p>NetworkManager，主网络服务</p>
+</li>
+<li><p>network，副网络服务</p>
+</li>
+<li><p>firewalld，防火墙服务</p>
+</li>
+<li><p>sshd，ssh服务</p>
+</li>
+</ul>
+<p>除了内置的服务以外，部分第三方软件安装后也可以以systemctl进行控制。</p>
+<ul>
+<li>yum install -y ntp，安装ntp软件</li>
+</ul>
+<p>可以通过ntpd服务名，配合systemctl进行控制</p>
+<ul>
+<li>yum install -y httpd，安装apache服务器软件</li>
+</ul>
+<p>可以通过httpd服务名，配合systemctl进行控制</p>
+<p>注意：部分软件安装后没有自动集成到systemctl中，我们可以手动添加。</p>
+<h3 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h3><h4 id="ln命令"><a href="#ln命令" class="headerlink" title="ln命令"></a>ln命令</h4><p>在系统中创建软链接，可以将文件、文件夹链接到其它位置。</p>
+<p>类似Windows系统中的《快捷方式》</p>
+<p>语法：<code>ln -s 参数1 参数 2</code></p>
+<ul>
+<li><p>-s选项，创建软链接</p>
+</li>
+<li><p>参数1：被链接的文件&#x2F;文件夹</p>
+</li>
+<li><p>参数2：要链接去的目的地</p>
+</li>
+</ul>
+<p>实列：</p>
+<ul>
+<li><p>ln -s &#x2F;etc&#x2F;yum.conf ~&#x2F;yum.conf</p>
+</li>
+<li><p>ln -s &#x2F;etc&#x2F;yum ~&#x2F;yum</p>
+</li>
+</ul>
+<h3 id="时间和时区"><a href="#时间和时区" class="headerlink" title="时间和时区"></a>时间和时区</h3><h4 id="date命令"><a href="#date命令" class="headerlink" title="date命令"></a>date命令</h4><p>通过date命令可以在命令行中查看系统时间</p>
 
                 
               </div>
