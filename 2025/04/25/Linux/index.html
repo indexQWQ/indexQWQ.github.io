@@ -70,7 +70,7 @@
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/ip3.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/pingbaidu.png">
 <meta property="article:published_time" content="2025-04-25T14:10:22.000Z">
-<meta property="article:modified_time" content="2025-05-10T11:12:49.971Z">
+<meta property="article:modified_time" content="2025-05-11T11:36:25.411Z">
 <meta property="article:author" content="IndexQWQ">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://indexqwq.github.io/2025/04/25/Linux/-a.png">
@@ -271,7 +271,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.5k 字
+          8k 字
         
       </span>
     
@@ -282,7 +282,7 @@
         
         
         
-          63 分钟
+          67 分钟
         
       </span>
     
@@ -1240,6 +1240,50 @@
 
 <p>从图中可以看到当前系统6000端口被程序（进程号10529）占用</p>
 <p>其中，0.0.0.0：6000，表示端口绑定在0.0.0.0在这个IP地址上，表示允许外部访问</p>
+<h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h3><h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>程序运行在操作系统中，是被操作系统所管理的</p>
+<p>为管理运行的程序，每一个程序在运行的时候，便被操作系统注册为系统中的一个：进程</p>
+<p>并会每一个进程分配一个独有的：进程 ID（进程号）</p>
+<p>可以通过ps命令查看Linux系统中的进程信息</p>
+<p>语法：<code>ps [-e -f]</code></p>
+<ul>
+<li><p>选项：-e，显示出全部的进程</p>
+</li>
+<li><p>选项：-f，以完全格式化的形式展示信息（展示全部信息）</p>
+</li>
+</ul>
+<p>一般来说，固定用法就是：ps -ef列出全部进程的全部信息</p>
+
+
+<p>从左到右分别是：</p>
+<ul>
+<li><p>UID：进程所属的用户ID</p>
+</li>
+<li><p>PID：进程的进程号ID</p>
+</li>
+<li><p>PPID：进程的父ID（启动此进程的其它进程）</p>
+</li>
+<li><p>C：此进程的CPU占用率（百分比）</p>
+</li>
+<li><p>STIME：进程的启动时间</p>
+</li>
+<li><p>TTY：启动此进程的终端序号，如显示？，表示非终端启动</p>
+</li>
+<li><p>TIME：进程占用CPU的时间</p>
+</li>
+<li><p>CND：进程对应的名称或启动路径或启动命令</p>
+</li>
+</ul>
+<p>在xshell中，执行命令：tail，可以看到，此命令一直阻塞在那里</p>
+<p>通过ps -ef | grep tail，可以准确的找到tail命令的信息</p>
+<p>过滤不仅仅过滤进程号，用户ID等等，都可以被grep过滤</p>
+
+
+<h4 id="关闭进程"><a href="#关闭进程" class="headerlink" title="关闭进程"></a>关闭进程</h4><p>在windows系统中，可以通过任务管理器选择进程后，点击结束进程从而关闭它。</p>
+<p>同样，在Linux系统中，可以通过kill命令关闭进程</p>
+<p>语法：kill [-9] 进程ID</p>
+<ul>
+<li>选项：-9，表示强制关闭进程。不使用 此选项会向进程发送信号要求其关闭，但是否关闭看进程自身的处理机制。</li>
+</ul>
 
                 
               </div>
