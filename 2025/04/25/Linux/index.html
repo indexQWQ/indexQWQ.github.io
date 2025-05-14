@@ -70,7 +70,7 @@
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/ip3.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/pingbaidu.png">
 <meta property="article:published_time" content="2025-04-25T14:10:22.000Z">
-<meta property="article:modified_time" content="2025-05-11T11:36:25.411Z">
+<meta property="article:modified_time" content="2025-05-14T07:09:00.768Z">
 <meta property="article:author" content="IndexQWQ">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://indexqwq.github.io/2025/04/25/Linux/-a.png">
@@ -271,7 +271,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8k 字
+          10k 字
         
       </span>
     
@@ -282,7 +282,7 @@
         
         
         
-          67 分钟
+          85 分钟
         
       </span>
     
@@ -1284,7 +1284,254 @@
 <ul>
 <li>选项：-9，表示强制关闭进程。不使用 此选项会向进程发送信号要求其关闭，但是否关闭看进程自身的处理机制。</li>
 </ul>
+<h3 id="主机状态监控"><a href="#主机状态监控" class="headerlink" title="主机状态监控"></a>主机状态监控</h3><h4 id="查看系统资源占用"><a href="#查看系统资源占用" class="headerlink" title="查看系统资源占用"></a>查看系统资源占用</h4><p>可以通过<code>top</code>命令查看CPU、内存使用情况，类似windows是任务管理器</p>
+<p>默认每5秒进行一次刷新，按ctrl+c或q可以退出</p>
 
+
+<ul>
+<li><p>第一行：</p>
+<p>top：命令名称；当前系统时间；启动了多久；几个用户登录；load：1、5、15分钟负载</p>
+</li>
+<li><p>第二行：</p>
+<p>Tasks：进程的数量；几个进程在运行；几个进程睡眠；几个进程停止；几个僵尸进程</p>
+</li>
+<li><p>第三行：</p>
+<p>%Cpu（s）：CPU使用率，us：用户CPU使用率，sy：系统CPU使用率，ni：高级先进进程占用CPU时间百分比，id：空闲CPU率，wa：IO等待CPU占用率，hi：CPU硬件终端率，si：CPU软件中断率，st：强制等待占用CPU率</p>
+</li>
+<li><p>第四、五行：</p>
+<p>Kib Mem：物理内存，total：总量，free：空闲，used：使用，buff&#x2F;cache：buff和cache占用</p>
+<p>KibSwap：虚拟内存（交换空间），total：总量，free：空闲，used：使用，buff&#x2F;cache：buff和cache占用</p>
+</li>
+</ul>
+
+
+<ul>
+<li><p>PID：进程id</p>
+</li>
+<li><p>USER：进程所属用户</p>
+</li>
+<li><p>PR：进程优化级，越小越高</p>
+</li>
+<li><p>NI：负值表示高优先级，正表示低优先级</p>
+</li>
+<li><p>VIRT：进程使用虚拟内存，单位KB</p>
+</li>
+<li><p>RES：进程使用物理内存，单位KB</p>
+</li>
+<li><p>SHR：进程使用共享内存，单位KB</p>
+</li>
+<li><p>S：进程状态（S休眠、R运行、Z僵死状态、N负数优先级、I空闲状态）</p>
+</li>
+<li><p>%CPU：进程占用CPU率</p>
+</li>
+<li><p>%MEM：进程占用内存条</p>
+</li>
+<li><p>TIME+：进程使用CPU时间总计，单位10毫秒</p>
+</li>
+<li><p>COMMAND：进程的命令或名称或程序文件路径</p>
+</li>
+</ul>
+<h4 id="top命令选项"><a href="#top命令选项" class="headerlink" title="top命令选项"></a>top命令选项</h4><ul>
+<li><p>-p 只显示某个进程的信息</p>
+</li>
+<li><p>-d 设置刷新时间，默认是5s</p>
+</li>
+<li><p>-c 显示生产进程得到完整命令，默认是进程名</p>
+</li>
+<li><p>-n 指定刷新次数，比如 top -n 3，刷新输出3次后退出</p>
+</li>
+<li><p>-b 以非交互非全屏模式运行，以批次的方式执行top，一般配合-n指定输出几次统计信息，将输出重定向到指定文件，比如 top -b -n 3 &gt; &#x2F;tmp&#x2F;top.tmp</p>
+</li>
+<li><p>-i 不显示任何闲置（idle）或无用（zombie）的进程</p>
+</li>
+<li><p>-u 查找特定用户启动的进程</p>
+</li>
+</ul>
+<h4 id="top交换式选项"><a href="#top交换式选项" class="headerlink" title="top交换式选项"></a>top交换式选项</h4><p>当top以交互式运行（非-b选项启动），可以用于以下交互式命令进行控制</p>
+<ul>
+<li><p>h键 显示帮助画面</p>
+</li>
+<li><p>c键 显示产生进程的完整命令，等同于-c参数，再次按下c键，变为默认显示</p>
+</li>
+<li><p>f键 可以选择需要展示得到项目</p>
+</li>
+<li><p>M键 根据驻留内存大小（RES）排序</p>
+</li>
+<li><p>P键 根据CPU使用百分比大小进行排序</p>
+</li>
+<li><p>T键 根据时间&#x2F;累计时间进行排序</p>
+</li>
+<li><p>E键 切换顶部内存显示单位</p>
+</li>
+<li><p>e键 切换进程内存显示单位</p>
+</li>
+<li><p>l键 切换显示平均负载和启动时间信息</p>
+</li>
+<li><p>i键 不显示闲置或无用的进程，等同于-i参数，再次按下，变为默认显示</p>
+</li>
+<li><p>t键 切换显示CPU状态信息</p>
+</li>
+<li><p>m键 切换显示内存信息</p>
+</li>
+</ul>
+<h4 id="磁盘的信息监控"><a href="#磁盘的信息监控" class="headerlink" title="磁盘的信息监控"></a>磁盘的信息监控</h4><h5 id="df命令-查看磁盘使用情况"><a href="#df命令-查看磁盘使用情况" class="headerlink" title="df命令-查看磁盘使用情况"></a>df命令-查看磁盘使用情况</h5><p>语法：<code>df [-h]</code></p>
+<ul>
+<li>选项：-h，以更加人性化的显示</li>
+</ul>
+<h5 id="iostat命令-查看CPU、磁盘的相关信息"><a href="#iostat命令-查看CPU、磁盘的相关信息" class="headerlink" title="iostat命令-查看CPU、磁盘的相关信息"></a>iostat命令-查看CPU、磁盘的相关信息</h5><p>语法：<code>iostat [-x] [num1] [num2]</code></p>
+<ul>
+<li><p>选项：-x，显示更多信息</p>
+</li>
+<li><p>num1：数字，刷新间隔，num2：数字，刷新次数</p>
+</li>
+</ul>
+
+
+<p>tps：该设备每秒的传输次数（indicate the number of transfers per second that were issued to the device.）。“一次传输”意思是“一次I&#x2F;O请求”。多个逻辑请求可能会被合并为“一次I&#x2F;O请求”，“一次传输”请求的大小是未知的。</p>
+<p>使用iostat -x可以显示更多信息</p>
+
+
+<ul>
+<li><p>rrqm&#x2F;s：每秒这个设备相关的读取请求有多少被Merge了（当系统调用需要读取数据的时候，VFS将请求发到各个FS，如果FS，如果FS发现不同的读取请求读取的是相同Block的数据，FS会将这个请求合并Merge，提高IO利用率，避免重复调用）</p>
+</li>
+<li><p>wrqm&#x2F;s：每秒这个设备相关的写入请求有多少被Merge了</p>
+</li>
+<li><p>rsec&#x2F;s： 每秒读取的扇区数：sectors</p>
+</li>
+<li><p>wsec&#x2F;：每秒写入的扇区数</p>
+</li>
+<li><p><mark>rKB&#x2F;s：每秒发送到设备的读取请求数</mark></p>
+</li>
+<li><p><mark>wKB&#x2F;s：每秒发送到设备的写入请求数</mark></p>
+</li>
+<li><p>avgrp-sz：平均请求扇区的大小</p>
+</li>
+<li><p>avgqu-sz：平均请求队列的长度，队列越短越好</p>
+</li>
+<li><p>await：每一个IO请求的处理的平均时间（单位是微秒毫秒）</p>
+</li>
+<li><p>svctm：表示平均每次设备I&#x2F;O操作的服务时间（以毫秒为单位）</p>
+</li>
+<li><p><mark>%util：磁盘利用率</mark></p>
+</li>
+</ul>
+<h4 id="网络状态监控"><a href="#网络状态监控" class="headerlink" title="网络状态监控"></a>网络状态监控</h4><h5 id="sar命令-查看网络的相关统计"><a href="#sar命令-查看网络的相关统计" class="headerlink" title="sar命令-查看网络的相关统计"></a>sar命令-查看网络的相关统计</h5><p>语法：<code>sar -n DEV num1 num2</code></p>
+<ul>
+<li><p>选项：-n，查看网络，DEV表示查看网络接口</p>
+</li>
+<li><p>num1：刷新间隔（不填就查看一次结束）， num2：查看次数（不填无限次数）</p>
+</li>
+</ul>
+
+
+<ul>
+<li><p>IFACE 本地网卡接口名称</p>
+</li>
+<li><p>rxpck&#x2F;s 每秒钟接受的数据包</p>
+</li>
+<li><p>txpck&#x2F;s 每秒钟发送的数据包</p>
+</li>
+<li><p><mark>rxKB&#x2F;S 每秒钟接受的数据包大小，单位为KB</mark></p>
+</li>
+<li><p><mark>txKB&#x2F;S 每秒钟发送的数据包大小。单位为KB</mark></p>
+</li>
+<li><p>rxcmp&#x2F;s 每秒钟接受的压缩数据包</p>
+</li>
+<li><p>txcmp&#x2F;s 每秒钟发送的压缩包</p>
+</li>
+<li><p>rxmcst&#x2F;s 每秒钟接受的 多播数据包</p>
+</li>
+</ul>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>在理解which命令的时候，我们知道使用的一系列命令其实本质上是一个个的可以执行的程序，比如cd命令本体就是：&#x2F;usr&#x2F;bin&#x2F;cd 这个程序文件</p>
+<p>我们是否有疑问，无论当前目录在哪里，都能够执行：&#x2F;usr&#x2F;bin&#x2F;cd这个程序吗？</p>
+<p>环境变量是操作系统在运行的时候，记录的一些关键性信息，用以辅助系统运行。</p>
+<p>在Linux系统中执行：env命令即可查看当前系统中记录的环境变量</p>
+<p>环境变量是一种KeyValue型结构，即名称和值，</p>
+
+
+<p>在前面提出的问题中，我们说无论当前工作目录是什么，都能执行&#x2F;usr&#x2F;bin&#x2F;cd这个程序，这个就是借助环境变量中：PATH这个项目的值来做到的。</p>
+
+
+<p>PATH记录了系统执行任何命令的搜索路径，如上图记录了（路径之间以：隔开）</p>
+<ul>
+<li><p>&#x2F;usr&#x2F;local&#x2F;bin</p>
+</li>
+<li><p>&#x2F;usr&#x2F;bin</p>
+</li>
+<li><p>&#x2F;usr&#x2F;local&#x2F;sbin</p>
+</li>
+<li><p>&#x2F;usr&#x2F;sbin</p>
+</li>
+<li><p>&#x2F;home&#x2F;index&#x2F;.local&#x2F;bin</p>
+</li>
+<li><p>&#x2F;home&#x2F;index&#x2F;bin</p>
+</li>
+</ul>
+<p>当执行任何命令，都会按照顺序，从上述路径中搜索要执行的程序的本体</p>
+<p>比如执行cd命令，就从第二个目录&#x2F;usr&#x2F;bin中搜索到了cd命令，并执行</p>
+<h4 id="符号"><a href="#符号" class="headerlink" title="$符号"></a>$符号</h4><p>在Linux系统中，$符号被用于取“变量”的值</p>
+<p>环境变量记录的信息，除了给操作系统自己使用外，如果我们想要取用，也可以使用。</p>
+<p>取得环境变量的值就可以通过语法：$环境变量名 来取得</p>
+<p>比如：<code>echo $PATH</code></p>
+<p>就可以取得PATH这个环境变量的值，并通过echo语气输出出来。</p>
+<p>又或者：<code>echo $&#123;PATH&#125;ABC</code></p>
+<p>当和其中其它内容混合在一起的时候，可以通过{}来标注取的变量是谁</p>
+<h4 id="自行设置环境变量"><a href="#自行设置环境变量" class="headerlink" title="自行设置环境变量"></a>自行设置环境变量</h4><p>Linux环境变量可以用户自行设置，其中分为：</p>
+<ul>
+<li><p>临时设置：语法：export 变量名&#x3D;变量值</p>
+</li>
+<li><p>永久生效</p>
+<ul>
+<li><p>针对当前用户生效，配置在当前用户的：<code>~/.bashrc</code>文件中可以用vi或vim进行编辑</p>
+</li>
+<li><p>针对所有用户生效，配置在系统的：<code>/etc/profile</code>文件中</p>
+</li>
+<li><p>并通过语法：source 配置文件，进行立刻生效，或重新登录XShell或FinalShell</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="自定义环境变量PATH"><a href="#自定义环境变量PATH" class="headerlink" title="自定义环境变量PATH"></a>自定义环境变量PATH</h4><p>环境变量PATH这个项目里面记录了执行命令的搜索路径</p>
+<p>这些搜索路径我们也可以自行添加到PATH中去</p>
+<p>测试：</p>
+<ul>
+<li><p>在当前HOME目录内创建文件夹，myenv，在文件夹内创建文件mkhaha</p>
+</li>
+<li><p>通过vim编辑器，在mkhaha文件内填入：echo 哈哈哈哈哈</p>
+</li>
+</ul>
+<p>完成上述操作后，随意切换工作目录，执行mkhaha目录尝试一下，会发现无法执行</p>
+<ul>
+<li><p>修改PATH的值</p>
+</li>
+<li><p>临时修改PATH：<code>export PATH=$PATH:/home/index/myenv</code>，再执行mkhaha，无论在哪里都能执行了，</p>
+</li>
+<li><p>或将<code>export PATH=$PATH:/home/index/myenv</code> ,填入环境变量文件或系统环境变量文件中</p>
+</li>
+</ul>
+<h3 id="Linux文件的上传和下载"><a href="#Linux文件的上传和下载" class="headerlink" title="Linux文件的上传和下载"></a>Linux文件的上传和下载</h3><p>如果使用xshell的话我们可以通过使用xftp工具，来和虚拟机进行数据交换</p>
+<p>rz、sz命令也能进行文件的传输</p>
+<p>可以先通过<code>yum -y install lrzsz</code>命令进行安装。</p>
+<ul>
+<li><p>rz命令，进行上传，语法：直接输入rz即可</p>
+</li>
+<li><p>sz命令进行下载，语法：sz要下载的文件</p>
+</li>
+</ul>
+<h3 id="压缩和解压"><a href="#压缩和解压" class="headerlink" title="压缩和解压"></a>压缩和解压</h3><h4 id="压缩格式"><a href="#压缩格式" class="headerlink" title="压缩格式"></a>压缩格式</h4><p>市面上有非常多的压缩格式</p>
+<ul>
+<li><p>zip格式：linux，windows，macos</p>
+</li>
+<li><p>7zip：windows系统常用</p>
+</li>
+<li><p>rar：windows系统常用</p>
+</li>
+<li><p>tar：Linux，macos常用</p>
+</li>
+<li><p>gzip：Linux，macos常用</p>
+</li>
+</ul>
+<h4 id="tar命令"><a href="#tar命令" class="headerlink" title="tar命令"></a>tar命令</h4>
                 
               </div>
             
