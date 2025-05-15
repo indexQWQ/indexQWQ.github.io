@@ -70,7 +70,7 @@
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/ip3.png">
 <meta property="og:image" content="https://indexqwq.github.io/2025/04/25/Linux/pingbaidu.png">
 <meta property="article:published_time" content="2025-04-25T14:10:22.000Z">
-<meta property="article:modified_time" content="2025-05-14T07:09:00.768Z">
+<meta property="article:modified_time" content="2025-05-15T09:58:37.856Z">
 <meta property="article:author" content="IndexQWQ">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://indexqwq.github.io/2025/04/25/Linux/-a.png">
@@ -271,7 +271,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          10k 字
+          11k 字
         
       </span>
     
@@ -282,7 +282,7 @@
         
         
         
-          85 分钟
+          90 分钟
         
       </span>
     
@@ -1531,7 +1531,95 @@
 <li><p>gzip：Linux，macos常用</p>
 </li>
 </ul>
-<h4 id="tar命令"><a href="#tar命令" class="headerlink" title="tar命令"></a>tar命令</h4>
+<h4 id="tar命令"><a href="#tar命令" class="headerlink" title="tar命令"></a>tar命令</h4><p>Linux和Mac系统常用有2种压缩格式，后缀名分别为：</p>
+<ul>
+<li><p>.tar，称之为tarball，归档文件，即简单的将文件组装到一个 .tar的文件内，并没有太多的文件体积的减少，仅仅是简单的封装</p>
+</li>
+<li><p>.gz，也常见为,tar.gz 或.gzip格式压缩文件，即使用gzip压缩算法将文件压缩到一个文件内，可以极大的减少压缩后的体积</p>
+</li>
+</ul>
+<p>针对这两种格式，使用tar命令均可以进行压缩和解压的操作</p>
+<p>语法：<code>tar [-c -v -x -f -z -C] 参数1 参数2 ....参数n</code></p>
+<ul>
+<li><p>-c，创建压缩文件，用于压缩格式</p>
+</li>
+<li><p>-v，显示压缩，解压过程，用于查看进度</p>
+</li>
+<li><p>-x，解压模式</p>
+</li>
+<li><p>-f，要创建的文件，或要解压的文件，-f选项必须在所有选项中位置处于最后一个</p>
+</li>
+<li><p>-z，gzip模式，不使用-z就是普通的tarball格式</p>
+</li>
+<li><p>-C，选择解压的目的地，用于解压模式</p>
+</li>
+</ul>
+<p>tar的常用的压缩组合为：</p>
+<ul>
+<li><p>tar -cvf test.tar 1.txt 2.txt 3.txt</p>
+<p>将1.txt 2.txt 3.txt压缩到test.tar文件内</p>
+</li>
+<li><p>tar -zcvf</p>
+<p>将1.txt 2.txt 3.txt压缩到test.tar.gz文件内，使用gzip模式</p>
+</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li><p>-z选项如果使用的话，一般处于选项的第一个位置</p>
+</li>
+<li><p>-f选项，必须在选项位的最后一个</p>
+</li>
+</ul>
+<p>常用的解压组合：</p>
+<ul>
+<li><p><code>tar -xvf test.tar</code></p>
+<p>解压test.tar，将文件解压到当前目录</p>
+</li>
+<li><p><code>tar -xvf test.tar -C /home/index</code></p>
+<p>解压test.tar，将文件解压到指定的目录里面</p>
+</li>
+<li><p><code>tar -zxvf test.tar.gz -C /home/index</code></p>
+<p>以gzip模式解压test.tar.gz，将文件解压至指定目录</p>
+</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li><p>-f选项，必须在选项组合体的最后一位</p>
+</li>
+<li><p>-z选项，建议在开头位置</p>
+</li>
+<li><p>-C选项单独使用，和解压所需的其它参数分开</p>
+</li>
+</ul>
+<h4 id="zip命令压缩文件"><a href="#zip命令压缩文件" class="headerlink" title="zip命令压缩文件"></a>zip命令压缩文件</h4><p>可以使用zip命令，压缩文件为zip压缩包</p>
+<p>语法：<code>zip [-r] 参数1 参数2 参数3</code></p>
+<ul>
+<li>-r，被压缩的包含文件夹的时候，想要使用-r选项，和rm、cp等命令的-r效果一致</li>
+</ul>
+<p>示例：</p>
+<ul>
+<li><p><code>zip tess.zip a.txt b.txt c.txt</code></p>
+<p>将a.txt b.txt c.txt压缩到test.zip 文件内</p>
+</li>
+<li><p><code>zip -r test.zip test index a.txt</code></p>
+<p>将test、index两个文件夹和a.txt 文件，压缩到test.zip文件内</p>
+</li>
+</ul>
+<h4 id="nuzip命令解压文件"><a href="#nuzip命令解压文件" class="headerlink" title="nuzip命令解压文件"></a>nuzip命令解压文件</h4><p>语法：unzip [-d] 参数</p>
+<ul>
+<li><p>-d，指定要解压去的位置，同tar的-C选项</p>
+</li>
+<li><p>参数，被解压的zip压缩包文件</p>
+</li>
+</ul>
+<p>示例:</p>
+<ul>
+<li><p>unzip test.zip，将test.zip解压到当前目录</p>
+</li>
+<li><p>unzip test.zip -d &#x2F;home&#x2F;index</p>
+</li>
+</ul>
+
                 
               </div>
             
