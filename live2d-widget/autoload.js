@@ -1,14 +1,12 @@
+
 /*!
  * Live2D Widget
  * https://github.com/stevenjoezhang/live2d-widget
  */
 
-// Recommended to use absolute path for live2d_path parameter
-// live2d_path 参数建议使用绝对路径
+// 推荐使用绝对路径
 const live2d_path = "/live2d-widget/";
-// const live2d_path = '/dist/';
 
-// Method to encapsulate asynchronous resource loading
 // 封装异步加载资源的方法
 function loadExternalResource(url, type) {
   return new Promise((resolve, reject) => {
@@ -21,7 +19,7 @@ function loadExternalResource(url, type) {
     }
     else if (type === 'js') {
       tag = document.createElement('script');
-      tag.type = 'module';
+      tag.type = 'module'; // 模块类型
       tag.src = url;
     }
     if (tag) {
@@ -32,44 +30,45 @@ function loadExternalResource(url, type) {
   });
 }
 
+// 主初始化函数（立即执行）
 (async () => {
-  // If you are concerned about display issues on mobile devices, you can use screen.width to determine whether to load
-  // 如果担心手机上显示效果不佳，可以根据屏幕宽度来判断是否加载
+  // 移动端可在此判断是否加载
   // if (screen.width < 768) return;
 
-  // Avoid cross-origin issues with image resources
   // 避免图片资源跨域问题
   const OriginalImage = window.Image;
   window.Image = function(...args) {
     const img = new OriginalImage(...args);
-    img.crossOrigin = "anonymous";
+    img.crossOrigin = "anonymous"; // 设置跨域属性
     return img;
   };
   window.Image.prototype = OriginalImage.prototype;
-  // Load waifu.css and waifu-tips.js
-  // 加载 waifu.css 和 waifu-tips.js
+  
+  // 加载CSS和JS资源
   await Promise.all([
     loadExternalResource(live2d_path + 'waifu.css', 'css'),
     loadExternalResource(live2d_path + 'waifu-tips.js', 'js')
   ]);
-  // For detailed usage of configuration options, see README.en.md
-  // 配置选项的具体用法见 README.md
+  
+  // 初始化看板娘组件
   initWidget({
-    waifuPath: live2d_path + 'waifu-tips.json',
-    // cdnPath: 'https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/',
-    cubism2Path: live2d_path + 'live2d.min.js',
-    //cubism5Path: 'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js',
-    tools: ['hitokoto', 'asteroids', 'switch-model', 'switch-texture', 'photo', 'info', 'quit'],
-    logLevel: 'warn',
-    drag: true,
+    waifuPath: live2d_path + 'waifu-tips.json', // 配置文件路径
+    cubism2Path: live2d_path + 'live2d.min.js', // Cubism2库路径
+    tools: ['hitokoto', 'asteroids', 'switch-model', 'switch-texture', 'photo', 'info', 'quit'], // 工具栏配置
+    logLevel: 'warn', // 日志级别
+    drag: true, // 启用拖拽
     model: {
-    jsonPath: live2d_path + 'models/chitose/chitose.model.json'
-  }
+      jsonPath: live2d_path + 'models/index/index.model.json', // 模型路径
+      jsonPath: live2d_path + 'models/miku/miku.model.json' // 模型路径
+    }
   });
 })();
 
-console.log(`\n%cLive2D%cWidget%c\n`, 'padding: 8px; background: #cd3e45; font-weight: bold; font-size: large; color: white;', 'padding: 8px; background: #ff5450; font-size: large; color: #eee;', '');
-
+// 控制台输出提示
+console.log(`\n%cLive2D%cWidget%c\n`, 
+  'padding: 8px; background: #cd3e45; font-weight: bold; font-size: large; color: white;', 
+  'padding: 8px; background: #ff5450; font-size: large; color: #eee;', 
+  '');
 /*
 く__,.ヘヽ.        /  ,ー､ 〉
          ＼ ', !-─‐-i  /  /´
