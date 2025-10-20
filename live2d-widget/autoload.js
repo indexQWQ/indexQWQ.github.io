@@ -53,13 +53,13 @@ function loadExternalResource(url, type) {
   // 初始化看板娘组件
   initWidget({
     waifuPath: live2d_path + 'waifu-tips.json', // 配置文件路径
+    //cdnPath: live2d_path,  // 关键：设置cdnPath来启用纹理缓存功能
     cubism2Path: live2d_path + 'live2d.min.js', // Cubism2库路径
     tools: ['hitokoto', 'asteroids', 'switch-model', 'switch-texture', 'photo', 'info', 'quit'], // 工具栏配置
-    logLevel: 'warn', // 日志级别
+    logLevel: 'info', // 日志级别 warn/info
     drag: true, // 启用拖拽
     model: {
-      jsonPath: live2d_path + 'models/index/index.model.json', // 模型路径
-      jsonPath: live2d_path + 'models/miku/miku.model.json' // 模型路径
+      jsonPath: live2d_path + 'models/potion-Maker-Tia/index.json' // 默认模型路径
     }
   });
 })();
