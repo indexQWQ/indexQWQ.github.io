@@ -1,0 +1,1 @@
+class LAppGlManager{constructor(){this._gl=null,this._gl=null}initialize(l){return this._gl=l.getContext("webgl2"),!!this._gl||(alert("Cannot initialize WebGL. This browser does not support."),this._gl=null,!1)}release(){}getGl(){return this._gl}}export{LAppGlManager};

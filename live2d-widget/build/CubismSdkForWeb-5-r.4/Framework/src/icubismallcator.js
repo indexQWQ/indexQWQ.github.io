@@ -1,0 +1,1 @@
+class ICubismAllocator{}import*as $ from"./icubismallcator";var Live2DCubismFramework;(Live2DCubismFramework=Live2DCubismFramework||{}).ICubismAllocator=$.ICubismAllocator;export{ICubismAllocator,Live2DCubismFramework};

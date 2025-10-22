@@ -1,0 +1,5 @@
+import terser from"@rollup/plugin-terser";import alias from"@rollup/plugin-alias";import fs from"fs";import path from"path";import{fileURLToPath}from"url";let __dirname=path.dirname(fileURLToPath(import.meta.url));function findCubismDir(){let r=path.join(__dirname,"build"),i=fs.readdirSync(r).filter(i=>i.startsWith("CubismSdkForWeb-")&&fs.statSync(path.join(r,i)).isDirectory());return 0===i.length&&(i=["CubismSdkForWeb-5-r.4"]),path.join(r,i[0])}let cubismDir=findCubismDir();export default{input:"build/waifu-tips.js",output:{dir:"dist/",format:"esm",chunkFileNames:"chunk/[name].js",sourcemap:!0,banner:`/*!
+ * Live2D Widget
+ * https://github.com/stevenjoezhang/live2d-widget
+ */
+`},plugins:[alias({entries:[{find:"@demo",replacement:path.resolve(cubismDir,"Samples/TypeScript/Demo/src/")},{find:"@framework",replacement:path.resolve(cubismDir,"Framework/src/")}]}),terser()],context:"this"};
