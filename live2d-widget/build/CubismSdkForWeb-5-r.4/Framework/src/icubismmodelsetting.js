@@ -1,1 +1,0 @@
-class ICubismModelSetting{}import*as $ from"./icubismmodelsetting";var Live2DCubismFramework;(Live2DCubismFramework=Live2DCubismFramework||{}).ICubismModelSetting=$.ICubismModelSetting;export{ICubismModelSetting,Live2DCubismFramework};

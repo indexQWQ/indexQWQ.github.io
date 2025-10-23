@@ -1,1 +1,0 @@
-import{LAppDelegate}from"./lappdelegate";window.addEventListener("load",()=>{LAppDelegate.getInstance().initialize()&&LAppDelegate.getInstance().run()},{passive:!0}),window.addEventListener("beforeunload",()=>LAppDelegate.releaseInstance(),{passive:!0});

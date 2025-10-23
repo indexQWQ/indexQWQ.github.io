@@ -1,1 +1,0 @@
-let fs=require("fs"),publicResources=[{src:"../../../Core",dst:"./public/Core"},{src:"../../Resources",dst:"./public/Resources"}];publicResources.forEach(s=>{fs.existsSync(s.dst)&&fs.rmSync(s.dst,{recursive:!0})}),publicResources.forEach(s=>fs.cpSync(s.src,s.dst,{recursive:!0}));
